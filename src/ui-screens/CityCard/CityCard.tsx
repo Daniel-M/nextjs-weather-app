@@ -6,6 +6,8 @@ import WbCloudyIcon from "@mui/icons-material/WbCloudy";
 import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import { Suspense } from "react";
+import { LoadingSpinner } from "@/components";
 import Image from "next/image";
 
 interface CityCardProps {
@@ -40,14 +42,16 @@ export function CityCard({
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <Image
-        src="https://source.unsplash.com/random"
-        alt={cityName}
-        width={345}
-        height={140}
-      />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Image
+          src="https://source.unsplash.com/random"
+          alt={cityName}
+          width={345}
+          height={140}
+        />
+      </Suspense>
       <CardContent>
-        <Grid container spacing={2} alignItems="center"> 
+        <Grid container spacing={2} alignItems="center">
           <Grid item>
             <Typography gutterBottom variant="h5" component="div">
               {cityName}
@@ -68,7 +72,7 @@ export function CityCard({
           alignItems="center"
         >
           <Grid item>
-          <Typography variant="h3" color="text.secondary">
+            <Typography variant="h3" color="text.secondary">
               {currentTemperature ? `${currentTemperature} °C` : "---"}
             </Typography>
           </Grid>

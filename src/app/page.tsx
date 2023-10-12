@@ -1,4 +1,4 @@
-import LoadingSpinner from "@/components/Loading/LoadingSpinner";
+import { LoadingSpinner } from "@/components";
 import { CityCard } from "@/ui-screens";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -29,9 +29,8 @@ const loadCities = async () => {
       ...jsonResponses[idx][0],
     }));
   } catch (error) {
-    
     console.log(error);
-    console.log('Returning fallback data');
+    console.log("Returning fallback data");
     return [
       {
         cityName: "Medellín",
@@ -101,6 +100,7 @@ export default async function Home() {
         direction="row"
         justifyContent="space-between"
         alignItems="center"
+        gap={2}
       >
         {renderCards}
       </Grid>

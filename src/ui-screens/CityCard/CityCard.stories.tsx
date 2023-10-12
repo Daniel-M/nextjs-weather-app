@@ -12,8 +12,11 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   argTypes: {
-      weatherText: { control: 'select', options: ['Sunny', 'Cloudy', 'Thunderstorm'] },
-  }
+    weatherText: {
+      control: "select",
+      options: ["Sunny", "Cloudy", "Thunderstorm"],
+    },
+  },
 } satisfies Meta<typeof CityCard>;
 
 export default meta;
@@ -27,6 +30,5 @@ export const Primary: Story = {
     currentTemperature: 30,
     currentHumidity: 70,
     weatherText: "Cloudy",
-
   },
 };
